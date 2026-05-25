@@ -1,0 +1,12 @@
+{
+  "name": "@workspace/version",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "stamp": "bash ../../scripts/stamp-version.sh"
+  }
+}
