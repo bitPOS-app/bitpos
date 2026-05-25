@@ -1,0 +1,64 @@
+# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# compiled output
+dist
+tmp
+out-tsc
+*.tsbuildinfo
+.expo
+.expo-shared
+
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
+
+.cache/
+.local/
+
+# Environment files — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# Development assets — large binary/image files used during development only
+attached_assets/
+
+# Auto-generated at build/dev time by scripts/stamp-version.sh — never commit
+lib/version/src/version.ts
+
+# Written by scripts/fresh-push.sh after every GitHub push — tells
+# stamp-version.sh which SHA to bake into the deployed binary so that
+# GET /api/version matches the public commit on github.com/bitPOS-app/bitpos
+.github-sha
