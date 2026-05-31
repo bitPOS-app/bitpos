@@ -1,0 +1,302 @@
+[
+  {
+    "sha": "e22db1ad361f603f0d5d307946c7c5a2b8fbb25d",
+    "subject": "Add ability to release a device from its current configuration",
+    "date": "2026-05-31T11:24:25Z"
+  },
+  {
+    "sha": "d628ade4da3f623c1c4ab8a22bb47cd01d1fcb8e",
+    "subject": "Improve device reset process for easier setup and troubleshooting",
+    "date": "2026-05-31T11:18:09Z"
+  },
+  {
+    "sha": "1d5fc01de1244ef37d51e95be70b4b55cc9fdfe7",
+    "subject": "Published your App",
+    "date": "2026-05-31T11:16:58Z"
+  },
+  {
+    "sha": "3e8645b699d1c3b916a8b25de16f9fd39732176b",
+    "subject": "Update payment processing display for no-PIN transactions",
+    "date": "2026-05-31T10:55:00Z"
+  },
+  {
+    "sha": "b1fb7453002a27772ddb489a33382759110c7734",
+    "subject": "Improve payment processing stability and user experience",
+    "date": "2026-05-31T10:51:03Z"
+  },
+  {
+    "sha": "968b15b7d7f4f723f7145245499b54a79704da66",
+    "subject": "Fix NFC payment crash and improve user experience",
+    "date": "2026-05-31T10:48:48Z"
+  },
+  {
+    "sha": "300fbf33238bd99597ac9392779bee37f69ce69c",
+    "subject": "Add screen dimming feature and update payment flow",
+    "date": "2026-05-31T10:22:55Z"
+  },
+  {
+    "sha": "5234af674744dd409f14ab33dc1cf602d06198ba",
+    "subject": "Add screen sleep functionality to dim display after inactivity",
+    "date": "2026-05-31T10:21:34Z"
+  },
+  {
+    "sha": "6be089fd9a09026955b19f7268b4763c11f27074",
+    "subject": "Increase buffer size for payment request URLs",
+    "date": "2026-05-31T10:17:51Z"
+  },
+  {
+    "sha": "f1bb6fa6ac06080e07b610f378e92efd3c324984",
+    "subject": "Reduce memory usage and improve stability by optimizing data handling",
+    "date": "2026-05-31T10:09:18Z"
+  },
+  {
+    "sha": "36c5931237e65792f62380b86fa2097bbdb5e643",
+    "subject": "Add animations and improve reliability for device operations",
+    "date": "2026-05-31T09:58:20Z"
+  },
+  {
+    "sha": "d66a23dc1547fd954b6e298d83214a7f586a0387",
+    "subject": "Automatically submit PIN after fourth digit entry",
+    "date": "2026-05-31T09:44:40Z"
+  },
+  {
+    "sha": "23704fd003c62ff9855598a55b78e4c13dd54cf8",
+    "subject": "Improve API connection performance by separating clients",
+    "date": "2026-05-31T09:35:18Z"
+  },
+  {
+    "sha": "f7a95004fab95d42e196e708864b96924912c559",
+    "subject": "Improve payment flow by showing a confirmation animation after PIN entry",
+    "date": "2026-05-31T09:22:15Z"
+  },
+  {
+    "sha": "e5035cc9d7b2210baaf5a244178dd7f86366d568",
+    "subject": "Add animation to show processing after PIN entry",
+    "date": "2026-05-31T09:10:29Z"
+  },
+  {
+    "sha": "a0a2301b6f6d48beec657d70eed7344997b7ae78",
+    "subject": "Improve device reliability with watchdog and auto-reconnect",
+    "date": "2026-05-31T08:56:53Z"
+  },
+  {
+    "sha": "9319473ffa5ecd33773194ba24aef416078acd0d",
+    "subject": "Add system stability and reliability improvements for mission-critical use",
+    "date": "2026-05-31T08:54:26Z"
+  },
+  {
+    "sha": "8f31d86a7d3907130c62b996f54dfb3d1c700be7",
+    "subject": "Prevent device from freezing by handling network errors during payment status checks",
+    "date": "2026-05-31T08:46:25Z"
+  },
+  {
+    "sha": "a38180910f9a2196cbe359817982e342f38e36fd",
+    "subject": "Rearrange PIN entry screen for larger buttons and inline controls",
+    "date": "2026-05-31T08:37:20Z"
+  },
+  {
+    "sha": "b4c621e6bda6651c98e5f11b4bb330446b13832f",
+    "subject": "Update PIN entry screen to remove card details and cancel button",
+    "date": "2026-05-31T08:32:51Z"
+  },
+  {
+    "sha": "9e7be5e0131a53c89c9aca91f0cba7a655dd8fc6",
+    "subject": "Improve payment screen layout and countdown timer smoothness",
+    "date": "2026-05-31T08:23:39Z"
+  },
+  {
+    "sha": "c3155d0677551fd9a2a64fe52308c7bd3bf198bf",
+    "subject": "Improve QR code generation speed by optimizing version selection",
+    "date": "2026-05-31T08:08:53Z"
+  },
+  {
+    "sha": "344c02c0e6d102f52845817827ef71f49a886ffa",
+    "subject": "Fix error when generating QR codes by managing memory allocation",
+    "date": "2026-05-31T07:54:54Z"
+  },
+  {
+    "sha": "89f2a777ec2dba43ff32200d769d058a96bc4e9e",
+    "subject": "Prevent payment screen crash by managing QR code buffer allocation",
+    "date": "2026-05-31T07:52:56Z"
+  },
+  {
+    "sha": "6a6f097c53c6eb5c9ce2ae0b47fca8c31bab30b9",
+    "subject": "Improve device linking and show online status",
+    "date": "2026-05-31T07:49:56Z"
+  },
+  {
+    "sha": "a494eca73cde7c8b5ca96c8789f935f605e2cee1",
+    "subject": "Update QR code drawing to use correct sizing variable",
+    "date": "2026-05-31T07:32:29Z"
+  },
+  {
+    "sha": "54318b49f99749ebf07f863db3296358e8ac26de",
+    "subject": "Update payment screen to show countdown and improve layout",
+    "date": "2026-05-31T07:31:20Z"
+  },
+  {
+    "sha": "f2cdb82a66728d55cdcadbece74ee7c00518079d",
+    "subject": "Update payment screen to show fiat amount and improve layout",
+    "date": "2026-05-31T07:10:26Z"
+  },
+  {
+    "sha": "60cfe3782935e64be1d32eadf77bdb1d59e6a50a",
+    "subject": "Transitioned from Plan to Build mode",
+    "date": "2026-05-31T07:04:44Z"
+  },
+  {
+    "sha": "a1b36e55e2fec36242df9045e896eeaa4f393b04",
+    "subject": "Change the indicator dot color to bright green when online",
+    "date": "2026-05-31T06:58:03Z"
+  },
+  {
+    "sha": "a4cedc722b1e0c3d82d1994deb1ae7a1bd1f805a",
+    "subject": "Transitioned from Plan to Build mode",
+    "date": "2026-05-31T06:56:59Z"
+  },
+  {
+    "sha": "c68eb1c05f6c2724848302c9332e25d18d616263",
+    "subject": "Add idle status indicators and improve decimal input",
+    "date": "2026-05-31T06:49:32Z"
+  },
+  {
+    "sha": "5e104542d917169c3160be32301e2a599cf51bad",
+    "subject": "Transitioned from Plan to Build mode",
+    "date": "2026-05-31T06:40:36Z"
+  },
+  {
+    "sha": "e22230777dfd83ba9d9234ba6981e1124b59fa89",
+    "subject": "Correct display color inversion and make the pay button green",
+    "date": "2026-05-31T06:28:44Z"
+  },
+  {
+    "sha": "696e90400993fc95875e780186aa37afedcaf003",
+    "subject": "Update payment screen to prioritize account currency input",
+    "date": "2026-05-31T06:21:10Z"
+  },
+  {
+    "sha": "e8e58b56b1d358b0a64b5a7c368f99289887c85d",
+    "subject": "Prioritize fiat currency display on the pay button and adjust numpad layout",
+    "date": "2026-05-31T06:09:07Z"
+  },
+  {
+    "sha": "7b5a3431f0c72eade745f8030e099ac5ed08c78c",
+    "subject": "Redesign payment screen to consolidate amount and pay button",
+    "date": "2026-05-31T06:02:45Z"
+  },
+  {
+    "sha": "3565aba38999a813503257bb5e90700c986a610f",
+    "subject": "Update currency settings to use server as source of truth",
+    "date": "2026-05-31T05:54:53Z"
+  },
+  {
+    "sha": "25615bb737e69b8a341314e1cd4633ef312bbf79",
+    "subject": "Update currency settings to use server as source of truth",
+    "date": "2026-05-31T04:33:41Z"
+  },
+  {
+    "sha": "0e66f00a48e81eabf88a1b0c87b29eb7ec00b077",
+    "subject": "Improve NFC reader performance for close-range card interactions",
+    "date": "2026-05-31T04:11:10Z"
+  },
+  {
+    "sha": "9cd8db2813dc1511afb7c771b2d3abd8c156de4f",
+    "subject": "Set device to only read cards at close-contact range",
+    "date": "2026-05-31T03:55:53Z"
+  },
+  {
+    "sha": "9490ca08e576e3cf6c008f965c566374439c0be7",
+    "subject": "Improve NFC reader to detect cards at various distances",
+    "date": "2026-05-31T03:51:02Z"
+  },
+  {
+    "sha": "835246b6b9a09066910f56029696838930987be7",
+    "subject": "Improve NFC card reading reliability with RF field cycling",
+    "date": "2026-05-31T03:46:22Z"
+  },
+  {
+    "sha": "d681a4810f326e5b00337df5464e2beff9503040",
+    "subject": "Improve card reading by re-establishing connection on retry",
+    "date": "2026-05-31T03:34:52Z"
+  },
+  {
+    "sha": "f6ab5fe2add1dd1c6721a1205486b4e5edd8b6de",
+    "subject": "Improve NFC reading reliability by adjusting NTAG424 card handling",
+    "date": "2026-05-31T03:31:28Z"
+  },
+  {
+    "sha": "b02d365c18023eda53e110918a9318c96e75b9a5",
+    "subject": "Add CRC32 library dependency for NFC functionality",
+    "date": "2026-05-31T03:20:37Z"
+  },
+  {
+    "sha": "1654035afef68f1fd8f36f06e0f43ec1d5a4ae9b",
+    "subject": "Improve NFC card reading for specific DNA tags",
+    "date": "2026-05-31T03:18:11Z"
+  },
+  {
+    "sha": "8e63475991a20699cfdd0f280e7bea2571d047b1",
+    "subject": "Improve NFC card reading by fixing compatibility and buffer issues",
+    "date": "2026-05-31T03:08:36Z"
+  },
+  {
+    "sha": "92162477833ec5d09f1d389cfefdef6282ab6ed8",
+    "subject": "Improve NFC card reading experience and PIN verification",
+    "date": "2026-05-31T03:06:19Z"
+  },
+  {
+    "sha": "9a0f3f24abf4182d62674b5931baa5c7889a8d3e",
+    "subject": "Improve NFC card tap detection and reliability",
+    "date": "2026-05-31T02:44:49Z"
+  },
+  {
+    "sha": "796a12fa9cc86d085294b3df6e47d0980b995a3d",
+    "subject": "Add ability to read NDEF URLs from Type 4 NFC cards",
+    "date": "2026-05-31T02:34:40Z"
+  },
+  {
+    "sha": "2ac401a5052528606545599caa8ad2f48da78084",
+    "subject": "Improve NFC card detection to identify Mifare Classic cards",
+    "date": "2026-05-31T02:28:57Z"
+  },
+  {
+    "sha": "02eb145020e765a9013c31a4d42d2044a28e600a",
+    "subject": "Add detailed logging for NFC payment detection issues",
+    "date": "2026-05-31T02:25:44Z"
+  },
+  {
+    "sha": "37220c0dcc46780510b387a18108850d99bf1deb",
+    "subject": "Add detailed logging to improve NFC payment detection diagnostics",
+    "date": "2026-05-31T02:19:21Z"
+  },
+  {
+    "sha": "f05778a70fcaa28cc1d5f231e9507cffc6a5e899",
+    "subject": "Prevent automatic token revocation after successful device provisioning",
+    "date": "2026-05-31T02:12:40Z"
+  },
+  {
+    "sha": "37ab8744ed67bfa525e14d61d1451a5a491a6114",
+    "subject": "Add confirmation dialog before revoking device tokens",
+    "date": "2026-05-31T02:04:42Z"
+  },
+  {
+    "sha": "20a880c1852bf46fddc379a5ce08539b8910cd1d",
+    "subject": "Improve NFC device detection by scanning all I2C addresses",
+    "date": "2026-05-31T01:46:28Z"
+  },
+  {
+    "sha": "9d0ee4acaa13bdd0efe2c460f3a5bd98a6e6417d",
+    "subject": "Improve device reliability and data persistence",
+    "date": "2026-05-31T01:36:59Z"
+  },
+  {
+    "sha": "1a0b4ed63f767ff11b6f8150beac605b2f64d896",
+    "subject": "Improve payment confirmation and NFC reader functionality",
+    "date": "2026-05-31T01:18:09Z"
+  },
+  {
+    "sha": "9cbfc70f443e63ad0c65a8e0d8926f2e7a5267b4",
+    "subject": "Fix incorrect header in configuration file",
+    "date": "2026-05-31T01:07:04Z"
+  }
+]
