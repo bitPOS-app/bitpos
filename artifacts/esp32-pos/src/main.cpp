@@ -147,10 +147,12 @@ static void enterConnectingWifi() {
     tft.drawString("Connecting to WiFi", SCREEN_W / 2, SCREEN_H / 2 - 22);
     tft.setTextColor(COL_TEXT, COL_BG);
     tft.drawString(Config::ssid, SCREEN_W / 2, SCREEN_H / 2 + 4);
-    // Discoverable factory-reset hint — so a stuck device can always be released
-    tft.setTextFont(1);
-    tft.setTextColor(COL_BORDER, COL_BG);
-    tft.drawString("Hold BOOT 5s to reset", SCREEN_W / 2, SCREEN_H - 14);
+    // Cancel button — tap to wipe credentials and return to BLE provisioning.
+    // Far more discoverable than "Hold BOOT 5s to reset" when the password is wrong.
+    tft.fillRoundRect((SCREEN_W - 140) / 2, 202, 140, 32, 6, tft.color565(180, 40, 40));
+    tft.setTextFont(FONT_SMALL);
+    tft.setTextColor(TFT_WHITE, tft.color565(180, 40, 40));
+    tft.drawString("Cancel", SCREEN_W / 2, 218);
 
     WiFi.setAutoReconnect(true);
     WiFi.begin(Config::ssid.c_str(), Config::pass.c_str());
@@ -227,6 +229,20 @@ static void handleConnectingWifi() {
         enterIdleAmount();
 
     } else {
+        // Cancel button hit-test — tap wipes credentials and re-enters BLE provisioning.
+        // Button is drawn at enterConnectingWifi(): fillRoundRect(90, 202, 140, 32).
+        // readTouch() is leading-edge only, so a single tap fires once.
+        int tx, ty;
+        if (readTouch(tx, ty)) {
+            if (tx >= 90 && tx < 230 && ty >= 202 && ty < 234) {
+                Serial.println("WiFi cancel tapped — clearing config, entering provisioning");
+                WiFi.disconnect(true);
+                delay(100);
+                enterProvisioning();
+                return;
+            }
+        }
+
         // Log WiFi status every 3 s so the serial monitor shows progress
         static uint32_t lastWifiLog = 0;
         if (millis() - lastWifiLog > 3000) {
