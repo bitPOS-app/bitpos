@@ -22,7 +22,7 @@ public:
     explicit WriteCallback(String& target, bool& flag)
         : _target(target), _flag(flag) {}
 
-    void onWrite(NimBLECharacteristic* pChar) override {
+    void onWrite(NimBLECharacteristic* pChar, NimBLEConnInfo& connInfo) override {
         _target = pChar->getValue().c_str();
         _flag   = true;
         Serial.printf("BLE: char written (%d bytes)\n", (int)pChar->getValue().length());
@@ -40,7 +40,7 @@ void ProvisionService::begin() {
     _ssidSet = _passSet = _tokenSet = _urlSet = _currencySet = false;
 
     NimBLEDevice::init("posBOX");
-    NimBLEDevice::setPower(ESP_PWR_LVL_P9);
+    NimBLEDevice::setPower(9);  // 9 dBm — NimBLE 2.x takes dBm directly
 
     _server = NimBLEDevice::createServer();
 
