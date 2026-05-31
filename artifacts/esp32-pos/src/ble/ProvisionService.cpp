@@ -64,11 +64,8 @@ void ProvisionService::begin() {
     );
     _statusChar->setValue("ready");
 
-    svc->start();
-
     NimBLEAdvertising* adv = NimBLEDevice::getAdvertising();
     adv->addServiceUUID(BLE_SERVICE_UUID);
-    adv->setScanResponse(true);
     adv->start();
 
     Serial.println("BLE: advertising as 'posBOX'");

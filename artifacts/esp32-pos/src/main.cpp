@@ -281,7 +281,7 @@ static void handleConnectingWifi() {
 static void enterIdleAmount() {
     screenOff      = false;
     lastActivityMs = millis();
-    ledcWrite(21, 255);         // backlight on — may be no-op if already on
+    ledcWrite(0, 255);          // backlight on — may be no-op if already on
     AmountScreen::draw(tft);
     state = STATE_IDLE_AMOUNT;
 }
@@ -295,7 +295,7 @@ static void handleIdleAmount() {
     if (screenOff) {
         screenOff      = false;
         lastActivityMs = millis();
-        ledcWrite(21, 255);
+        ledcWrite(0, 255);
         AmountScreen::draw(tft);
         return;
     }
@@ -630,9 +630,11 @@ void setup() {
     esp_task_wdt_add(NULL);        // watch the main (loop) task
 
     // TFT backlight — GPIO 21 on CYD via LEDC PWM (full brightness = 255)
-    // Arduino ESP32 3.x uses pin-based LEDC API (no explicit channels).
-    ledcAttach(21, 5000, 8); // GPIO 21, 5 kHz, 8-bit resolution
-    ledcWrite(21, 255);      // 100% duty cycle → max brightness
+    // Using LEDC rather than digitalWrite gives reliable full duty cycle
+    // regardless of any TFT_eSPI internal pin state changes.
+    ledcSetup(0, 5000, 8);   // channel 0, 5 kHz, 8-bit resolution
+    ledcAttachPin(21, 0);    // GPIO 21 → LEDC channel 0
+    ledcWrite(0, 255);       // 100% duty cycle → max brightness
 
     // TFT init — ILI9341_2_DRIVER + USE_HSPI_PORT matches witnessmenow CYD reference.
     // setRotation(1) = landscape, correct orientation on CYD with this driver.
@@ -756,7 +758,7 @@ void loop() {
     if (state == STATE_IDLE_AMOUNT && !screenOff &&
         millis() - lastActivityMs > SCREEN_DIM_MS) {
         screenOff = true;
-        ledcWrite(21, 0);   // backlight off
+        ledcWrite(0, 0);    // backlight off
     }
 
     switch (state) {
