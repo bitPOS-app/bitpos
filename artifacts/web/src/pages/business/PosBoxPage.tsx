@@ -397,7 +397,10 @@ function LinkModal({ accountId, authToken, onClose, onLinked }: {
       ]);
 
       const currency = localStorage.getItem("bitpos_fiat") ?? "usd";
-      const serverUrl = `${window.location.origin}/api`;
+      // VITE_DEVICE_SERVER_URL lets ops pin the URL written to the device
+      // to the Replit-deployed domain (*.replit.app) rather than a custom
+      // domain that may use a P-384 / SHA-384 cert the ESP32 can't parse.
+      const serverUrl = import.meta.env.VITE_DEVICE_SERVER_URL ?? `${window.location.origin}/api`;
 
       setStatusMsg("Issuing device token...");
       const tokenResp = await fetch(`${API_BASE}/accounts/${accountId}/device-tokens`, {

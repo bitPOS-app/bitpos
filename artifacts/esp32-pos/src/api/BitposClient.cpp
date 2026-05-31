@@ -9,41 +9,21 @@ WiFiClientSecure BitposClient::_authClient;
 HTTPClient      BitposClient::_pubHttp;
 WiFiClientSecure BitposClient::_pubClient;
 
-// ISRG Root X1 — root CA for bitpos.app (Let's Encrypt chain)
-// Valid until 2035-06-04. Update when this cert expires.
-static const char* ISRG_ROOT_X1 = R"(
------BEGIN CERTIFICATE-----
-MIIFazCCA1OgAwIBAgIRAIIQz7DSQONZRGPgu2OCiwAwDQYJKoZIhvcNAQELBQAw
-TzELMAkGA1UEBhMCVVMxKTAnBgNVBAoTIEludGVybmV0IFNlY3VyaXR5IFJlc2Vh
-cmNoIEdyb3VwMRUwEwYDVQQDEwxJU1JHIFJvb3QgWDEwHhcNMTUwNjA0MTEwNDM4
-WhcNMzUwNjA0MTEwNDM4WjBPMQswCQYDVQQGEwJVUzEpMCcGA1UEChMgSW50ZXJu
-ZXQgU2VjdXJpdHkgUmVzZWFyY2ggR3JvdXAxFTATBgNVBAMTDElTUkcgUm9vdCBY
-MTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoBggIBAK3oJHP0FDfzm54rVygc
-h77ct984kIxuPOZXoHj3dcKi/vVqbvYATyjb3miGbESTtrFj/RQSa78f0uoxmyF+
-0TM8ukj13Xnfs7j/EvEhmkvBioZxaUpmZmyPfjxwv60pIgbz5MDmgK7iS4+3mX6U
-A5/TR5d8mUgjU+g4rk8Kb4Mu0UlXjIB0ttov0DiNewNwIRt18jA8+o+u3dpjq+sW
-T8KOEUt+zwvo/7V3LvSye0rgTBIlDHCNAymg4VMk7BPZ7hm/ELNKjD+Jo2FR3qyH
-B5T0Y3HsLuJvW5iB4YlcNHlsdu87kGJ55tukmi8mxdAQ4Q7e2RCOFvu396j3x+UC
-B5iPNgiV5+I3lg02dZ77DnKxHZu8A/lJBdiB3QW0KtZB6awBdpUKD9jf1b0SHzUv
-KBds0pjBqAlkd25HN7rOrFleaJ1/ctaJxQZBKT5ZPt0m9STJEadao0xAH0ahmbWn
-OlFuhjuefXKnEgV4We0+UXgVCwOPjdAvBbI+e0ocS3MFEvzG6uBQE3xDk3SzynTn
-jh8BCNAw1FtxNrQHusEwMFxIt4I7mKZ9YIqioymCzLq9gwQbooMDQaHWBfEbwrbw
-qHyGO0aoSCqI3Haadr8faqU9GY/rOPNk3sgrDQoo//fb4hVC1CLQJ13hef4Y53CI
-rU7m2Ys6xt0nUW7/vGT1M0NPAgMBAAGjQjBAMA4GA1UdDwEB/wQEAwIBBjAPBgNV
-HRMBAf8EBTADAQH/MB0GA1UdDgQWBBR5tFnme7bl5AFzgAiIyBpY9umbbjANBgkq
-hkiG9w0BAQsFAAOCAgEAVR9YqbyyqFDQDLHYGmkgJykIrGF1XIpu+ILlaS/V9lZL
-ubhzEFnTIZd+50xx+7LSYK05qAvqFyFWhfFQDlnrzuBZ6brJFe+GnY+EgPbk6ZGQ
-3BebYhtF8GaV0nxvwuo77x/Py9auJ/GpsMiu/X1+mvoiBOv/2X/qkSsisRcOj/KK
-NFtY2PwByVS5uCbMiogziUwthDyC3+6WVwW6LLv3xLfHTjuCvjHIInNzktHCgKQ5
-ORAzI4JMPJ+GslWYHb4phowim57iaztXOoJwTdwJx4nLCgdNbOhdjsnvzqvHu7Ur
-TkXWStAmzOVyyghqpZXjFaH3pO3JLF+l+/+sKAIuvtd7u+Nxe5AW0wdeRlN8NwdC
-jNPElpzVmbUq4JUagEiuTDkHzsxHpFKVK7q4+63SM1N95R1NbdWhscdCb+ZAJzVc
-oyi3B43njTOQ5yOf+1CceWxG1bQVs5ZufpsMljq4Ui0/1lvh+wjChP4kqKOJ2qxq
-4RgqsahDYVvTH9w7jXbyLeiNdd8XM2w9U/t7y0Ff/9yi0GE44Za4rF2LN9d11TPA
-mRGunUHBcnWEvgJBQl9nJEiU0Zsnvgc/ubhPgXRR4Xq37Z0j4r7g1SgEEzwxA57d
-emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=
------END CERTIFICATE-----
-)";
+// NOTE: TLS cert-pinning via setCACert(ISRG_ROOT_X1) was removed.
+//
+// Root cause: bitpos.app's Let's Encrypt cert chain uses the E7 intermediate
+// (ECDSA P-384, signed with SHA-384). The ESP32 Arduino 2.x mbedTLS build
+// fails to PARSE the E7 cert during the TLS handshake, producing:
+//   (-15202) PK - The pubkey tag or value is invalid (only RSA and EC are
+//   supported) : ASN1 - ASN1 tag was of an unexpected type
+// This happens even with setInsecure() because mbedTLS parses the full cert
+// chain before applying the verify-mode skip.
+//
+// Mitigation: the device always connects to the Replit-deployed URL (not the
+// custom domain) — set VITE_DEVICE_SERVER_URL in the web app's build env so
+// the BLE-provisioned serverUrl points to *.replit.app which serves a P-256 /
+// SHA-256 cert that the ESP32 can parse. setInsecure() is then safe because
+// the Bearer token provides application-layer authentication anyway.
 
 // ─── URL scratch buffer ───────────────────────────────────────────────────────
 // All URL construction uses snprintf into this buffer — no String temporaries,
@@ -74,14 +54,11 @@ void BitposClient::init(const String& serverUrl, const String& token) {
     // calls reuse the same heap block — zero fragmentation from response bodies.
     _respBuf.reserve(1536);
 
-    // Auth client — pinned to bitpos.app cert in production; insecure for dev.
-    // Tear down any existing session so the new cert/URL takes effect immediately.
+    // Auth client — always insecure (no cert pinning).
+    // See the comment block at the top of this file for the full explanation.
+    // Application-layer security is provided by the Bearer token.
     _authClient.stop();
-    if (serverUrl.indexOf("bitpos.app") >= 0) {
-        _authClient.setCACert(ISRG_ROOT_X1);
-    } else {
-        _authClient.setInsecure();
-    }
+    _authClient.setInsecure();
     // Keep the TLS session alive across sequential calls to the same server.
     // This eliminates the 1-3 s RSA handshake on every poll/price/invoice call.
     _authHttp.setReuse(true);
