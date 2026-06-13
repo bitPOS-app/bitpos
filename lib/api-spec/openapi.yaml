@@ -1,0 +1,1122 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 0.1.0
+  description: bitPOS - Bitcoin Lightning Wallet API
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: auth
+    description: Authentication
+  - name: entities
+    description: Entity management
+  - name: accounts
+    description: Account management and payments
+  - name: price
+    description: Bitcoin price feed
+  - name: lnurlp
+    description: Lightning Address (LNURL-pay) callbacks
+  - name: cards
+    description: Bolt Card issuance and management
+
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /auth/register:
+    post:
+      operationId: register
+      tags: [auth]
+      summary: Register a new account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterInput"
+      responses:
+        "201":
+          description: Registered
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "409":
+          description: Email or handle already taken
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/login:
+    post:
+      operationId: login
+      tags: [auth]
+      summary: Login with handle and PIN
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginInput"
+      responses:
+        "200":
+          description: Logged in
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "401":
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/me:
+    get:
+      operationId: getMe
+      tags: [auth]
+      summary: Get current authenticated user
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Current user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MeResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /accounts/{id}/balance:
+    get:
+      operationId: getBalance
+      tags: [accounts]
+      summary: Get account balance
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Balance
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BalanceResponse"
+        "404":
+          description: Account not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /accounts/{id}/transactions:
+    get:
+      operationId: listTransactions
+      tags: [accounts]
+      summary: List transactions for an account
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Transaction list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Transaction"
+
+  /accounts/{id}/fund:
+    post:
+      operationId: fundAccount
+      tags: [accounts]
+      summary: Fund account - generate a Lightning invoice to deposit sats
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InvoiceInput"
+      responses:
+        "201":
+          description: Funding invoice created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InvoiceResponse"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /accounts/{id}/invoice:
+    post:
+      operationId: createInvoice
+      tags: [accounts]
+      summary: Generate a Lightning invoice to receive funds
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InvoiceInput"
+      responses:
+        "201":
+          description: Invoice created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InvoiceResponse"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /accounts/{id}/pay:
+    post:
+      operationId: pay
+      tags: [accounts]
+      summary: Send a Lightning payment (bolt11 invoice or Lightning address)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PaymentInput"
+      responses:
+        "200":
+          description: Payment sent
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaymentResponse"
+        "400":
+          description: Validation error or insufficient balance
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Recipient not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /accounts/{id}/swap:
+    post:
+      operationId: createSwap
+      tags: [accounts]
+      summary: Swap Lightning balance to on-chain Bitcoin via Boltz
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SwapInput"
+      responses:
+        "201":
+          description: Swap created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SwapResponse"
+        "400":
+          description: Insufficient balance or invalid address
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /accounts/{id}/swaps/{swapId}:
+    get:
+      operationId: getSwapStatus
+      tags: [accounts]
+      summary: Get Boltz swap status and txid
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: swapId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Swap status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SwapStatusResponse"
+        "404":
+          description: Swap not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /accounts/{id}/business:
+    post:
+      operationId: activateBusiness
+      tags: [accounts]
+      summary: Activate business profile for an account
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BusinessInput"
+      responses:
+        "200":
+          description: Business profile activated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountInfo"
+        "404":
+          description: Account not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /accounts/{id}/yield:
+    get:
+      operationId: getYieldHistory
+      tags: [accounts]
+      summary: Get yield distribution history
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Yield history
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/YieldHistory"
+
+  /price:
+    get:
+      operationId: getPrice
+      tags: [price]
+      summary: Get current Bitcoin price in USD, EUR, GBP
+      responses:
+        "200":
+          description: Bitcoin price
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PriceResponse"
+
+  /entities:
+    post:
+      operationId: createEntity
+      tags: [entities]
+      summary: Create a new entity and account (signup)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterInput"
+      responses:
+        "201":
+          description: Entity created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "409":
+          description: Email or handle already taken
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /entities/{id}:
+    get:
+      operationId: getEntity
+      tags: [entities]
+      summary: Get entity and account info
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Entity info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MeResponse"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Entity not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /entities/{id}/business:
+    post:
+      operationId: activateEntityBusiness
+      tags: [entities]
+      summary: Activate business profile for an entity's account
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BusinessInput"
+      responses:
+        "200":
+          description: Business profile activated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountInfo"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Account not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /accounts/{id}/lightning-address:
+    get:
+      operationId: getLightningAddress
+      tags: [accounts]
+      summary: Get Lightning Address for an account
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Lightning Address
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LightningAddressResponse"
+        "404":
+          description: Account not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /accounts/{accountId}/cards:
+    post:
+      operationId: issueCard
+      tags: [cards]
+      summary: Issue a new Bolt Card (requires phone-verified account)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "201":
+          description: Card issued - contains keys for NFC programming
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CardIssueResponse"
+        "403":
+          description: Phone verification required
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Account not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    get:
+      operationId: listCards
+      tags: [cards]
+      summary: List Bolt Cards for an account
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Card list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CardInfo"
+
+  /cards/{id}:
+    patch:
+      operationId: updateCard
+      tags: [cards]
+      summary: Update card limits or freeze/unfreeze
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatchCardInput"
+      responses:
+        "200":
+          description: Card updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CardInfo"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Card not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    delete:
+      operationId: deleteCard
+      tags: [cards]
+      summary: Deactivate (cancel) a Bolt Card permanently
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Card cancelled
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CardDeleteResponse"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Card not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    HealthStatus:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
+
+    RegisterInput:
+      type: object
+      required: [email, handle, pin]
+      properties:
+        email:
+          type: string
+          format: email
+        handle:
+          type: string
+          minLength: 3
+          maxLength: 32
+          pattern: "^[a-z0-9_]+$"
+        pin:
+          type: string
+          minLength: 4
+          maxLength: 8
+
+    LoginInput:
+      type: object
+      required: [handle, pin]
+      properties:
+        handle:
+          type: string
+        pin:
+          type: string
+
+    EntityInfo:
+      type: object
+      required: [id, email, handle, createdAt]
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+        handle:
+          type: string
+        phone:
+          type: ["string", "null"]
+        phoneVerified:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+
+    AccountInfo:
+      type: object
+      required: [id, type, balanceSats, businessActive]
+      properties:
+        id:
+          type: string
+          format: uuid
+        type:
+          type: string
+          enum: [personal, business]
+        businessName:
+          type: ["string", "null"]
+        businessActive:
+          type: boolean
+        balanceSats:
+          type: integer
+
+    AuthResponse:
+      type: object
+      required: [token, entity, account]
+      properties:
+        token:
+          type: string
+        entity:
+          $ref: "#/components/schemas/EntityInfo"
+        account:
+          $ref: "#/components/schemas/AccountInfo"
+
+    MeResponse:
+      type: object
+      required: [entity, account]
+      properties:
+        entity:
+          $ref: "#/components/schemas/EntityInfo"
+        account:
+          $ref: "#/components/schemas/AccountInfo"
+
+    BalanceResponse:
+      type: object
+      required: [balanceSats]
+      properties:
+        balanceSats:
+          type: integer
+
+    Transaction:
+      type: object
+      required: [id, accountId, direction, amountSats, feeSats, type, status, createdAt]
+      properties:
+        id:
+          type: string
+          format: uuid
+        accountId:
+          type: string
+          format: uuid
+        direction:
+          type: string
+          enum: [in, out]
+        amountSats:
+          type: integer
+        feeSats:
+          type: integer
+        type:
+          type: string
+          enum: [receive, send, internal_receive, internal_send, yield, swap, swap_refund, fee]
+        counterpartHandle:
+          type: ["string", "null"]
+        counterpartLnAddress:
+          type: ["string", "null"]
+        bolt11:
+          type: ["string", "null"]
+        paymentHash:
+          type: ["string", "null"]
+        status:
+          type: string
+          enum: [pending, completed, failed]
+        memo:
+          type: ["string", "null"]
+        cardId:
+          type: ["string", "null"]
+          format: uuid
+          description: Set when this transaction was initiated by a Bolt Card tap
+        createdAt:
+          type: string
+          format: date-time
+
+    InvoiceInput:
+      type: object
+      required: [amountSats]
+      properties:
+        amountSats:
+          type: integer
+          minimum: 1
+        memo:
+          type: string
+
+    InvoiceResponse:
+      type: object
+      required: [bolt11, paymentHash, amountSats, expiresAt]
+      properties:
+        bolt11:
+          type: string
+        paymentHash:
+          type: string
+        amountSats:
+          type: integer
+        expiresAt:
+          type: string
+          format: date-time
+
+    PaymentInput:
+      type: object
+      required: [destination]
+      properties:
+        destination:
+          type: string
+          description: bolt11 invoice string or Lightning address (handle@domain)
+        amountSats:
+          type: integer
+          minimum: 1
+          description: Required when destination is a Lightning address
+        memo:
+          type: string
+
+    PaymentResponse:
+      type: object
+      required: [amountSats, feeSats, type]
+      properties:
+        paymentHash:
+          type: ["string", "null"]
+        amountSats:
+          type: integer
+        feeSats:
+          type: integer
+        type:
+          type: string
+          enum: [internal, external]
+
+    SwapInput:
+      type: object
+      required: [destinationAddress, amountSats]
+      properties:
+        destinationAddress:
+          type: string
+          description: On-chain Bitcoin address to receive funds
+        amountSats:
+          type: integer
+          minimum: 10000
+          description: Amount to swap in satoshis (minimum 10,000)
+
+    SwapStatus:
+      type: string
+      enum: [pending, claimed, failed, expired]
+
+    SwapResponse:
+      type: object
+      required: [swapId, onchainAmount, destinationAddress, feeSats, status]
+      properties:
+        swapId:
+          type: string
+        onchainAmount:
+          type: integer
+        destinationAddress:
+          type: string
+        feeSats:
+          type: integer
+        status:
+          $ref: "#/components/schemas/SwapStatus"
+        paymentHash:
+          type: ["string", "null"]
+        txid:
+          type: ["string", "null"]
+
+    SwapStatusResponse:
+      type: object
+      required: [swapId, status, onchainAmount, destinationAddress, createdAt]
+      properties:
+        swapId:
+          type: string
+        status:
+          $ref: "#/components/schemas/SwapStatus"
+        onchainAmount:
+          type: integer
+        destinationAddress:
+          type: string
+        txid:
+          type: ["string", "null"]
+        paymentHash:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+          format: date-time
+        claimedAt:
+          type: ["string", "null"]
+          format: date-time
+
+    BusinessInput:
+      type: object
+      required: [businessName]
+      properties:
+        businessName:
+          type: string
+          minLength: 1
+          maxLength: 100
+
+    PriceResponse:
+      type: object
+      required: [usd, eur, gbp]
+      properties:
+        usd:
+          type: number
+        eur:
+          type: number
+        gbp:
+          type: number
+
+    YieldDistribution:
+      type: object
+      required: [id, weekStart, accountId, amountSats, distributedAt]
+      properties:
+        id:
+          type: string
+          format: uuid
+        weekStart:
+          type: string
+        accountId:
+          type: string
+          format: uuid
+        amountSats:
+          type: integer
+        distributedAt:
+          type: string
+          format: date-time
+
+    YieldHistory:
+      type: object
+      required: [distributions, totalEarned]
+      properties:
+        distributions:
+          type: array
+          items:
+            $ref: "#/components/schemas/YieldDistribution"
+        totalEarned:
+          type: integer
+
+    LightningAddressResponse:
+      type: object
+      required: [lightningAddress]
+      properties:
+        lightningAddress:
+          type: string
+          description: Lightning Address in handle@domain format
+
+    LnurlpInvoice:
+      type: object
+      required: [pr, routes]
+      properties:
+        pr:
+          type: string
+        routes:
+          type: array
+          items:
+            type: object
+
+    LnurlpError:
+      type: object
+      required: [status, reason]
+      properties:
+        status:
+          type: string
+        reason:
+          type: string
+
+    CardStatus:
+      type: string
+      enum: [active, frozen, cancelled]
+
+    CardInfo:
+      type: object
+      required: [id, status, perTapLimitSats, dailyLimitSats, createdAt]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: ["string", "null"]
+          description: Optional human-readable card name set by user
+        status:
+          $ref: "#/components/schemas/CardStatus"
+        perTapLimitSats:
+          type: integer
+        dailyLimitSats:
+          type: integer
+        lastUsedAt:
+          type: ["string", "null"]
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+
+    CardKeys:
+      type: object
+      required: [key0, key1, key2, key3, key4]
+      description: |
+        AES-128 keys for programming the physical NTAG 424 DNA NFC card
+        using NXP TagXplorer or equivalent tool. key1 is the SUN Encryption
+        Key, key2 is the SUN MAC Key. Display once and discard - keys are
+        not retrievable after issuance.
+      properties:
+        key0:
+          type: string
+          description: Master key (32 hex chars)
+        key1:
+          type: string
+          description: SUN Encryption Key (AES-128-CBC decrypt of p parameter)
+        key2:
+          type: string
+          description: SUN MAC Key (AES-CMAC verification of c parameter)
+        key3:
+          type: string
+          description: Application key 3
+        key4:
+          type: string
+          description: Application key 4
+
+    CardIssueResponse:
+      type: object
+      required: [cardId, status, perTapLimitSats, dailyLimitSats, provisionUrl, lnurlwTemplate, keys, createdAt]
+      properties:
+        cardId:
+          type: string
+          format: uuid
+        status:
+          $ref: "#/components/schemas/CardStatus"
+        perTapLimitSats:
+          type: integer
+        dailyLimitSats:
+          type: integer
+        provisionUrl:
+          type: string
+          description: One-time URL for the Bolt Card NFC Creator app (boltcard://program?url=<this>)
+        lnurlwTemplate:
+          type: string
+          description: LNURLw URL template for manual NFC programming tools (e.g. NXP TagXplorer)
+        keys:
+          $ref: "#/components/schemas/CardKeys"
+        createdAt:
+          type: string
+          format: date-time
+
+    PatchCardInput:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 40
+          description: Human-readable card name
+        status:
+          type: string
+          enum: [active, frozen]
+        perTapLimitSats:
+          type: integer
+          minimum: 1
+          maximum: 10000000
+        dailyLimitSats:
+          type: integer
+          minimum: 1
+          maximum: 100000000
+
+    CardDeleteResponse:
+      type: object
+      required: [id, status]
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          $ref: "#/components/schemas/CardStatus"

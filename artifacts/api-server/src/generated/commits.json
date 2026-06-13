@@ -1,0 +1,302 @@
+[
+  {
+    "sha": "e3ac02899a021cb0e42c2ffcbbf70ac38e659f4d",
+    "subject": "Published your App",
+    "date": "2026-06-13T07:47:18Z"
+  },
+  {
+    "sha": "9b25eaba6a46605bec6236491c153deeff4afb69",
+    "subject": "Add undo and redo buttons to the mobile toolbar",
+    "date": "2026-06-13T07:39:57Z"
+  },
+  {
+    "sha": "040cce6f9491f6b72e32afa3be45e474a78f12d1",
+    "subject": "Published your App",
+    "date": "2026-06-13T07:18:03Z"
+  },
+  {
+    "sha": "60adf6a8641b26483a934f69e737fbe9ef0ce1f4",
+    "subject": "Make email sending portable by reading SendGrid key from environment variable",
+    "date": "2026-06-13T07:10:42Z"
+  },
+  {
+    "sha": "29a3b921a024a72f359fd2ed348b7082a7b5b132",
+    "subject": "Make email sending portable by reading SendGrid key from environment variable",
+    "date": "2026-06-13T07:06:17Z"
+  },
+  {
+    "sha": "3154eba5adf3cb82eac52c4816934407aa6d5bc7",
+    "subject": "Add ability to expand card previews to full-size view",
+    "date": "2026-06-13T06:52:18Z"
+  },
+  {
+    "sha": "9f75e16dc0538e1dc8ae6970e74a89612945ac97",
+    "subject": "Add Drafts button to mobile view",
+    "date": "2026-06-13T06:49:20Z"
+  },
+  {
+    "sha": "6dfe69a7123e781422922dc99016a00920677713",
+    "subject": "Add ability to download both front and back card designs as PNG",
+    "date": "2026-06-13T06:46:02Z"
+  },
+  {
+    "sha": "2f6aab450226125059bde74b972b1db777246717",
+    "subject": "Add ability to hide and show the inspector panel on mobile devices",
+    "date": "2026-06-13T06:42:34Z"
+  },
+  {
+    "sha": "42761a55428dd2f8874e212344de18dc39b5ce66",
+    "subject": "Add ability to add and customize various shapes to the canvas",
+    "date": "2026-06-13T06:36:51Z"
+  },
+  {
+    "sha": "8bfff5f90c9f6abaed5292f39103a848fba53709",
+    "subject": "Add comprehensive card design and editing features",
+    "date": "2026-06-13T06:26:42Z"
+  },
+  {
+    "sha": "e362d0d790fb4c66908f8cfe23a703e05634e2d0",
+    "subject": "Task #149: Card Studio bleed guides + rounded CR80 PNG export",
+    "date": "2026-06-13T05:55:28Z"
+  },
+  {
+    "sha": "046309139030a4694d06c94e4ca961bc5a34a1b2",
+    "subject": "Update card design tool to improve image handling and display",
+    "date": "2026-06-13T05:49:55Z"
+  },
+  {
+    "sha": "60ba80a4e02b3978342345d44886960190184baa",
+    "subject": "Transitioned from Plan to Build mode",
+    "date": "2026-06-13T05:42:32Z"
+  },
+  {
+    "sha": "bdba166561c98ae521de96a5458104ba102a3fc4",
+    "subject": "Update email sending to use authenticated bitpos.app domain",
+    "date": "2026-06-13T05:33:47Z"
+  },
+  {
+    "sha": "c45983f70af04ad9c4f539bca35d1f48bbbd4899",
+    "subject": "Add two-factor authentication and account recovery features",
+    "date": "2026-06-13T05:01:48Z"
+  },
+  {
+    "sha": "a1563e8c9a8cb8fad898c24554a42459ff1e4e13",
+    "subject": "Transitioned from Plan to Build mode",
+    "date": "2026-06-13T04:21:12Z"
+  },
+  {
+    "sha": "c9e92ae83a9e965da35a2e5f3bb52659c439e1e2",
+    "subject": "Update wording for customer payment instruction on app page",
+    "date": "2026-06-12T10:24:37Z"
+  },
+  {
+    "sha": "56192f6224ea0c844e47e8de855f1cc9df5b2b0b",
+    "subject": "Update app description to improve clarity and flow",
+    "date": "2026-06-12T10:24:02Z"
+  },
+  {
+    "sha": "4e826c7b9de8e76ce6b2c564401224b5aa250d5c",
+    "subject": "Update website text to reflect broader browser compatibility",
+    "date": "2026-06-12T10:23:40Z"
+  },
+  {
+    "sha": "fed0d4a9b1ffdea79f360999ee5c717ef29ac95e",
+    "subject": "Update website text to improve clarity and conciseness",
+    "date": "2026-06-12T10:22:27Z"
+  },
+  {
+    "sha": "89207fe027e9974ce8f6b7cf4a1c6e31f067ec02",
+    "subject": "Update licensing text to reflect open verification",
+    "date": "2026-06-12T10:21:59Z"
+  },
+  {
+    "sha": "1bc5020d20646e1650168df1c133f83d677cb4d5",
+    "subject": "Update wording for self-custodial sweep feature description",
+    "date": "2026-06-12T10:20:52Z"
+  },
+  {
+    "sha": "ff455bcb73100699147351dd498844958bee59bf",
+    "subject": "Update feature description for self-custodial sweep",
+    "date": "2026-06-12T10:20:24Z"
+  },
+  {
+    "sha": "6709866dda14e0552c568c68025e7346a2723afe",
+    "subject": "Remove PIN-protected staff mode from app features",
+    "date": "2026-06-12T10:19:35Z"
+  },
+  {
+    "sha": "d29aa7467db97c1a85c78012a36f3a5391cd9028",
+    "subject": "Update text to reflect \"node\" instead of \"backend\" setup",
+    "date": "2026-06-12T10:18:13Z"
+  },
+  {
+    "sha": "82b537cc2b426c4b5e7b151bb83134423fcea77b",
+    "subject": "Update text to clarify invoice generation requirements",
+    "date": "2026-06-12T10:17:31Z"
+  },
+  {
+    "sha": "620d6e4349b90084950bd0416f8bb1edd397cfdc",
+    "subject": "Update text to use currency denominations instead of fiat denominations",
+    "date": "2026-06-12T10:16:13Z"
+  },
+  {
+    "sha": "2db60001196061f1114d188b9c619132e798a3d7",
+    "subject": "Update phrasing for currency display in payment quotes",
+    "date": "2026-06-12T10:14:57Z"
+  },
+  {
+    "sha": "5984673dee073edc47174046bcd9e0c9fbd68c46",
+    "subject": "Update app feature description to mention instant sat arrival",
+    "date": "2026-06-12T10:13:42Z"
+  },
+  {
+    "sha": "fcf0692e3bf2caf8931b112196a05168540322ce",
+    "subject": "Update app feature description to a shorter version",
+    "date": "2026-06-12T10:13:11Z"
+  },
+  {
+    "sha": "25f8a119d2793dc880127bfb3b93301e79b3dc55",
+    "subject": "Update text on a button that designs a custom card",
+    "date": "2026-06-12T09:59:14Z"
+  },
+  {
+    "sha": "c3e9272293ee94fca488437eb9008ac823b31496",
+    "subject": "Update text size for card studio call to action link",
+    "date": "2026-06-12T09:58:02Z"
+  },
+  {
+    "sha": "081b6fdddfa71315f543f3d75d43577145295347",
+    "subject": "Update the landing page to add a call to action for designing cards",
+    "date": "2026-06-12T09:56:59Z"
+  },
+  {
+    "sha": "a65f4545c898ee71aee4fd2f6f7831ad723b665c",
+    "subject": "Add call to action for designing cards on the landing page",
+    "date": "2026-06-12T09:51:07Z"
+  },
+  {
+    "sha": "2ec50dbc719853787810496b8a7b5ada518a885f",
+    "subject": "Update NFC card description to include tap-to-pay functionality",
+    "date": "2026-06-12T09:47:45Z"
+  },
+  {
+    "sha": "6849bb774f84c50ce2b209cf8bceae52e09469d1",
+    "subject": "Update heading text to include a hyphen",
+    "date": "2026-06-12T09:43:55Z"
+  },
+  {
+    "sha": "e06da18b1cbcf1b07bb6788ac77de5938853cbc0",
+    "subject": "Update text describing NFC terminal box functionality",
+    "date": "2026-06-12T09:43:14Z"
+  },
+  {
+    "sha": "98cb32478108c8d77cc081b0691e64e9477923dc",
+    "subject": "Update text describing NFC card payment settlement speed",
+    "date": "2026-06-12T09:41:16Z"
+  },
+  {
+    "sha": "b58c24977482e5efb9f8c31e485165254d2c1ccb",
+    "subject": "Update description about legacy card security risks",
+    "date": "2026-06-12T09:39:04Z"
+  },
+  {
+    "sha": "216deb21ee6eadbaf35ca6428bb847227b2e6295",
+    "subject": "Update description for NFC terminal box",
+    "date": "2026-06-12T09:38:25Z"
+  },
+  {
+    "sha": "511319681f0a1746e4d57d71633421dea9fd7dbd",
+    "subject": "Update description for generating lightning invoices on any device",
+    "date": "2026-06-12T09:36:34Z"
+  },
+  {
+    "sha": "c00927edcaf0982ab8214694f3c7a6c5c444c29c",
+    "subject": "Update landing page text to improve clarity on setup",
+    "date": "2026-06-12T09:36:13Z"
+  },
+  {
+    "sha": "946a53649e778fb9104337edfc90995aca08c85a",
+    "subject": "Remove \"Bitcoin point of sale\" tag from the landing page hero",
+    "date": "2026-06-12T09:35:10Z"
+  },
+  {
+    "sha": "3c1a415fe5bbd7d2f7febab8b51d9a6d9ef22dd2",
+    "subject": "Update version information for the application",
+    "date": "2026-06-12T09:33:46Z"
+  },
+  {
+    "sha": "d5c2143f87e764b266459b8dca876d074af714bb",
+    "subject": "Align community cards and improve creator attribution wording",
+    "date": "2026-06-12T09:32:45Z"
+  },
+  {
+    "sha": "b54a9fe226d83794b9bd53e796e2752c2c68e167",
+    "subject": "Published your App",
+    "date": "2026-06-09T07:41:20Z"
+  },
+  {
+    "sha": "cb505aa71589a5e004bb0a5e7d28464c3d173d98",
+    "subject": "Align community cards and improve creator attribution wording",
+    "date": "2026-06-09T07:34:47Z"
+  },
+  {
+    "sha": "b1fafba10cecbe05d4e0ddcb51071f017f0b09dd",
+    "subject": "Published your App",
+    "date": "2026-06-09T07:21:54Z"
+  },
+  {
+    "sha": "85980ce8458259dfe59281553ae540b79cedc473",
+    "subject": "Update shop page to remove royalty limits and add admin design management",
+    "date": "2026-06-09T07:15:17Z"
+  },
+  {
+    "sha": "0a17d48b1294ff1150470898dbd5d0d0680a844d",
+    "subject": "Fix broken back image links for community edition design cards",
+    "date": "2026-06-09T06:59:26Z"
+  },
+  {
+    "sha": "daa3c183323a572ffee9bbc9ed343cedaec3ea75",
+    "subject": "Published your App",
+    "date": "2026-06-09T06:42:12Z"
+  },
+  {
+    "sha": "481325bf07fa2e2312a9138a7fb0a710714576b5",
+    "subject": "Allow admin uploads by bypassing CORS for admin routes",
+    "date": "2026-06-09T06:34:04Z"
+  },
+  {
+    "sha": "1782d86c04676bed9ef6326cac37c21766cf750a",
+    "subject": "Published your App",
+    "date": "2026-06-09T06:31:25Z"
+  },
+  {
+    "sha": "a9856b8779157a65dea0a78d9ea3f29e27999b82",
+    "subject": "Allow admin uploads by bypassing CORS for admin routes",
+    "date": "2026-06-09T06:24:09Z"
+  },
+  {
+    "sha": "70aa58877706c47e49f4d81e9209aa5aa02ae9f5",
+    "subject": "Make the order tracking number clickable",
+    "date": "2026-06-09T06:14:33Z"
+  },
+  {
+    "sha": "da0b4be0519bdc0675ae3f86793cd31c45c66969",
+    "subject": "Extend duration of first animation slide",
+    "date": "2026-06-09T06:09:44Z"
+  },
+  {
+    "sha": "675b38e49d847c96e7de5a4efe15c3fe29ef9d3a",
+    "subject": "Extend the first animation duration to allow it to play out fully",
+    "date": "2026-06-09T06:09:12Z"
+  },
+  {
+    "sha": "42490201ef64fc16f0168d3739d71f7d438efc5c",
+    "subject": "feat(landing): cycling hero animation with 3 slides and dot indicators",
+    "date": "2026-06-09T06:06:33Z"
+  },
+  {
+    "sha": "944f44f2147d766a72bf4a187c107e73458df867",
+    "subject": "Transitioned from Plan to Build mode",
+    "date": "2026-06-09T06:04:12Z"
+  }
+]
