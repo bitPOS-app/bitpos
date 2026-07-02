@@ -1,0 +1,302 @@
+[
+  {
+    "sha": "ff0959103b42ac3cfa3a7bdac139402c7a34bd0c",
+    "subject": "Improve wallet connection stability and payment processing reliability",
+    "date": "2026-07-02T09:32:06Z"
+  },
+  {
+    "sha": "4c26e8a4ea8bc58023dc458833a23ab6eec112dd",
+    "subject": "Published your App",
+    "date": "2026-07-02T09:16:11Z"
+  },
+  {
+    "sha": "9c81102a58cc44e39436c2a3310aeff774967c66",
+    "subject": "Improve relay connection stability and payment retry logic",
+    "date": "2026-07-02T09:07:31Z"
+  },
+  {
+    "sha": "d78379d8b8864b5f0b5bb53128e393ffd5611854",
+    "subject": "Published your App",
+    "date": "2026-07-02T09:02:37Z"
+  },
+  {
+    "sha": "654f1a14e804274e60acdf549b49618d42e41572",
+    "subject": "Improve dashboard balance display and API relay stability",
+    "date": "2026-07-02T08:51:35Z"
+  },
+  {
+    "sha": "16173f09d4d9e2a3fb102f40750016a2646be53f",
+    "subject": "Published your App",
+    "date": "2026-07-02T08:11:36Z"
+  },
+  {
+    "sha": "ff31204ebc491bd44784edcc889228dfa8e6dc82",
+    "subject": "Instant receive history on autoscale (Task #162)",
+    "date": "2026-07-02T08:00:01Z"
+  },
+  {
+    "sha": "5e6085f458cbc2b19204d4063e89f762b3744887",
+    "subject": "Published your App",
+    "date": "2026-07-02T07:37:20Z"
+  },
+  {
+    "sha": "7e7956b727a62bf36bfb33b263ee50e4b0af70fc",
+    "subject": "Migrate Bolt Card (LNURL-withdraw) payment path to Veil wallets",
+    "date": "2026-07-02T07:26:43Z"
+  },
+  {
+    "sha": "d2f5c730605e1b2149b8ab4ebd73b994773ad531",
+    "subject": "Published your App",
+    "date": "2026-07-02T06:53:56Z"
+  },
+  {
+    "sha": "d4bc58dbe08fb2b230880c990dedd5d63e1fed6d",
+    "subject": "Update swap route to use live wallet balance for verification",
+    "date": "2026-07-02T06:37:58Z"
+  },
+  {
+    "sha": "c4d38d3d4956d084de59c66e79b434b7b2699b6f",
+    "subject": "Verify bitPOS email sender branding; add hardened sweep-to-veil endpoint",
+    "date": "2026-07-02T06:34:22Z"
+  },
+  {
+    "sha": "9d3906ae2d4449f6238ed94fdede5b0ee7d931ef",
+    "subject": "Add hardened admin sweep-to-veil migration endpoint",
+    "date": "2026-07-02T06:30:51Z"
+  },
+  {
+    "sha": "816f22a5020ca9b6bcdef25fc5bb147982b6d062",
+    "subject": "Update payment processing and remove internal bank account",
+    "date": "2026-07-02T05:44:36Z"
+  },
+  {
+    "sha": "97c13fcccc5a2db80a3b692e4a2e8ff0f24eb9c6",
+    "subject": "fix: update Veil wallet description text in Settings",
+    "date": "2026-07-02T05:00:16Z"
+  },
+  {
+    "sha": "16b04b1915b8e3e03bed5cc76786edd56a548c8a",
+    "subject": "feat: Veil NIP-47 migration - per-user wallet via nostr keypairs",
+    "date": "2026-07-02T04:55:44Z"
+  },
+  {
+    "sha": "112a012ac251b7ad5b73f7fc71a46a2888aff276",
+    "subject": "Add a test for Veil notifications and invoice payments",
+    "date": "2026-07-02T04:36:52Z"
+  },
+  {
+    "sha": "247d0760d3478c64b4cc8b7ca341a33220248737",
+    "subject": "Add integration tests for Veil's Nostr Wallet Connect functionality",
+    "date": "2026-07-02T04:32:17Z"
+  },
+  {
+    "sha": "431a1b71406452b799e3f0aeb03705e61e5671a2",
+    "subject": "Published your App",
+    "date": "2026-07-02T03:53:12Z"
+  },
+  {
+    "sha": "11a228a29bcd86e53cdebb5db75c5b7298ced1b4",
+    "subject": "Fix Card Shop JSON parse error: use /api path not BASE_URL prefix",
+    "date": "2026-07-02T03:45:54Z"
+  },
+  {
+    "sha": "6391fb3ab09aa6b1d2123cf73cc9ef9edd2a756f",
+    "subject": "Published your App",
+    "date": "2026-07-02T03:38:07Z"
+  },
+  {
+    "sha": "0db672f271d139d7e496a75dc519750fd6309a7c",
+    "subject": "Add embeddable card shop functionality to the business section",
+    "date": "2026-07-02T03:31:13Z"
+  },
+  {
+    "sha": "58de37f00339893cdcddb67486ce2297a2cfcc8e",
+    "subject": "Add a new embeddable card shop to the business section",
+    "date": "2026-07-02T03:27:00Z"
+  },
+  {
+    "sha": "8cf83ad074eacc55801087e2a7c140bc3692d487",
+    "subject": "Resolve port conflicts and ensure all services run independently",
+    "date": "2026-07-02T02:28:42Z"
+  },
+  {
+    "sha": "73d74251ead54cd846f2a0f5d8747e0da1c8a1ae",
+    "subject": "Update landing page text and commit version information",
+    "date": "2026-07-02T02:20:15Z"
+  },
+  {
+    "sha": "1c66532eec4bb45b28e7d9919dbd025312f40471",
+    "subject": "Update text on the landing page to reflect new phrasing",
+    "date": "2026-07-01T09:37:30Z"
+  },
+  {
+    "sha": "e37ad9a75e70dc125e49cf8ad9a08d025954773b",
+    "subject": "Update website text and commit version information",
+    "date": "2026-07-01T09:37:05Z"
+  },
+  {
+    "sha": "9ab65baeb843a7cbda8d00306907b9560f315419",
+    "subject": "Published your App",
+    "date": "2026-06-24T10:48:52Z"
+  },
+  {
+    "sha": "6a7ca09152030d1b84d900e734ff6506486d909d",
+    "subject": "Update the dashboard header to show \"Sweep Balance\"",
+    "date": "2026-06-24T10:41:24Z"
+  },
+  {
+    "sha": "f6a850fcc6cef22e81897fdc75750a246337d374",
+    "subject": "Published your App",
+    "date": "2026-06-24T10:35:48Z"
+  },
+  {
+    "sha": "8c23ed0c15ed3ca91b1aafc5ca4cd90397c3dc4d",
+    "subject": "Remove specific mentions of build from commit hooks",
+    "date": "2026-06-24T10:29:38Z"
+  },
+  {
+    "sha": "1b2a9825ff4d4da25a0b843a1e1c80c87474cf45",
+    "subject": "Update commit authorship to display user name instead of build",
+    "date": "2026-06-24T10:10:18Z"
+  },
+  {
+    "sha": "790908942eb5baf3881d180518307d4248736a57",
+    "subject": "Map build commits to user's GitHub identity",
+    "date": "2026-06-24T10:06:03Z"
+  },
+  {
+    "sha": "fdb0ff64ae600e35ac2bd3d042416c8cdaafa399",
+    "subject": "Published your App",
+    "date": "2026-06-24T09:54:07Z"
+  },
+  {
+    "sha": "abc6e109ff04b425360f4937b03b1352472e136c",
+    "subject": "Make the issue card button more prominent with primary color",
+    "date": "2026-06-24T09:46:20Z"
+  },
+  {
+    "sha": "81a9c819b8eeccb4b3d4549e9077cfbd66db9f11",
+    "subject": "Apply brand style treatment to web app (fonts, colors, nav typography)",
+    "date": "2026-06-24T09:44:43Z"
+  },
+  {
+    "sha": "e8558f720839364ad781fbb19ac0ec59c5448a8e",
+    "subject": "Update source button link to the organization's GitHub page",
+    "date": "2026-06-24T09:37:51Z"
+  },
+  {
+    "sha": "38a2366c9f3cfd810c3356ba56236342fc50c53c",
+    "subject": "Animate AsciiField background characters with ciphering effect",
+    "date": "2026-06-24T09:34:57Z"
+  },
+  {
+    "sha": "89cf035ca89158b18523ae57f9e2c682cce6e052",
+    "subject": "Published your App",
+    "date": "2026-06-24T09:28:56Z"
+  },
+  {
+    "sha": "512c69ad266f1180621e848e5a6a1e531e935c9e",
+    "subject": "Update documentation to remove platform-specific references",
+    "date": "2026-06-24T09:21:38Z"
+  },
+  {
+    "sha": "dfffd9a11d491c43e3f694cc443f09da245bd72f",
+    "subject": "Fix service worker cache-first strategy causing black screen after deployments",
+    "date": "2026-06-24T09:16:27Z"
+  },
+  {
+    "sha": "64537e1f36661370f0b603acb17db78ccef2203b",
+    "subject": "Improve footer layout and spacing on mobile devices",
+    "date": "2026-06-24T09:10:46Z"
+  },
+  {
+    "sha": "372e9867eebc28ac4d8a01dbfc248565b2cc51a4",
+    "subject": "Distribute navigation items evenly on mobile view",
+    "date": "2026-06-24T09:05:19Z"
+  },
+  {
+    "sha": "4cf880d9ba1f6098d1adf16428333c803ce0041a",
+    "subject": "Place all mobile navigation buttons on a single line",
+    "date": "2026-06-24T09:04:13Z"
+  },
+  {
+    "sha": "9c2281b09788fed2426e7a4aba8956e1dcc85562",
+    "subject": "Update card settlement terminology on the features page",
+    "date": "2026-06-24T09:02:26Z"
+  },
+  {
+    "sha": "d57449bc7fa8826e28d9070c86ea4bd289271eb2",
+    "subject": "Make header navigation visible on mobile devices",
+    "date": "2026-06-24T09:02:01Z"
+  },
+  {
+    "sha": "3c76e345151805192f9bf3743610e4d76a678878",
+    "subject": "Update text for custom card design studio",
+    "date": "2026-06-24T08:57:40Z"
+  },
+  {
+    "sha": "a9026f1107b8f70fb0ff298859e530a1aac712de",
+    "subject": "Update button link on the cards features page",
+    "date": "2026-06-24T08:56:59Z"
+  },
+  {
+    "sha": "98ced3b1cff4af87e325f7fe7d49d03c8e738de3",
+    "subject": "Update button text and link on the app features page",
+    "date": "2026-06-24T08:56:07Z"
+  },
+  {
+    "sha": "1bf3cd4a13ecf724d5942888ba0c9e58be0fac7c",
+    "subject": "Update button link to redirect to a different feature page",
+    "date": "2026-06-24T08:55:12Z"
+  },
+  {
+    "sha": "caabd1d6861f5cc8532b2e6b69148b96aaf0fd15",
+    "subject": "Remove order cards button and link from the app features page",
+    "date": "2026-06-24T08:52:12Z"
+  },
+  {
+    "sha": "fc8cffcb551abad070f03932814c566a1a4ddfe7",
+    "subject": "Update links for ordering cards to the business shop page",
+    "date": "2026-06-24T08:49:47Z"
+  },
+  {
+    "sha": "d3afeabf54e3f3a37d62589ef928090a89608f03",
+    "subject": "Add order cards button and link to the app features page",
+    "date": "2026-06-24T08:49:06Z"
+  },
+  {
+    "sha": "09aa8c73f992f17ba86a56c8fbbe15c6481cdc9d",
+    "subject": "Port /status to blueprint style treatment",
+    "date": "2026-06-24T08:46:47Z"
+  },
+  {
+    "sha": "7037c0713b5e0f363274b56c6583a8e7929d76fd",
+    "subject": "Apply consistent styling to comparison, privacy, and terms pages",
+    "date": "2026-06-24T08:41:56Z"
+  },
+  {
+    "sha": "5f375d29ee7f2685a42f4d638fa0ce0ab92f0053",
+    "subject": "Remove descriptive labels from feature pages",
+    "date": "2026-06-24T08:35:04Z"
+  },
+  {
+    "sha": "9d03f14f2aa73f87f10e5801ef4f1a435075e59f",
+    "subject": "Remove eyebrow text from features pages",
+    "date": "2026-06-24T08:34:23Z"
+  },
+  {
+    "sha": "042be3e34c9a0869712d0c3eb801762a54bfedbe",
+    "subject": "Remove unused eyebrow component from application feature page",
+    "date": "2026-06-24T08:33:31Z"
+  },
+  {
+    "sha": "8729c87280e368a645f58a710737e76d44408f2f",
+    "subject": "Update box page text with the latest firmware information",
+    "date": "2026-06-24T08:31:59Z"
+  },
+  {
+    "sha": "19f6c01fcfdc8a4dbf2e25ab3c5af292ba85b2d4",
+    "subject": "Update styling and add changelog link to the footer",
+    "date": "2026-06-24T08:28:49Z"
+  }
+]
