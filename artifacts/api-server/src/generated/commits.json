@@ -1,0 +1,302 @@
+[
+  {
+    "sha": "a4f46c56b3a72dfe578107081878e6a002dea968",
+    "subject": "Transitioned from Plan to Build mode",
+    "date": "2026-07-10T04:24:24Z"
+  },
+  {
+    "sha": "243b19e340b4be0110575d7dfb8f6a0bb05e81e6",
+    "subject": "Published your App",
+    "date": "2026-07-10T02:52:58Z"
+  },
+  {
+    "sha": "6fe0a5eb6ec23827aff90711be22d71bcbc2813a",
+    "subject": "Fix POS -11 by cutting card tap to a single relay call",
+    "date": "2026-07-10T02:36:03Z"
+  },
+  {
+    "sha": "88d9674afec85fc9f4720cb487c2af0a56b3ac68",
+    "subject": "Improve payment response times to prevent device timeouts",
+    "date": "2026-07-10T02:23:26Z"
+  },
+  {
+    "sha": "13870a17d385308898e817139b9232a2d26d194c",
+    "subject": "Published your App",
+    "date": "2026-07-10T02:13:41Z"
+  },
+  {
+    "sha": "1298177e40a6f7c7ec949663496b0fdcdd718dd5",
+    "subject": "Fix POS -11 on slow settlement: LNURLw callback OK = accepted, not settled",
+    "date": "2026-07-10T02:04:55Z"
+  },
+  {
+    "sha": "8042f0c6157a6b6af2a80ad5633b0d796418bfcb",
+    "subject": "Published your App",
+    "date": "2026-07-10T01:57:12Z"
+  },
+  {
+    "sha": "d62f4357349e2a12553f7cb1bdffe8760e35de2b",
+    "subject": "Fix POS tap error when Veil relay drops the pay_invoice reply",
+    "date": "2026-07-10T01:46:18Z"
+  },
+  {
+    "sha": "fec4e0c4b47c9d239ee016596141da623b7515ed",
+    "subject": "Published your App",
+    "date": "2026-07-10T01:22:05Z"
+  },
+  {
+    "sha": "e2728050c3ad5a9754d496535dc690156554bc9b",
+    "subject": "Task #181: Fix POS false failures from broken outgoing-payment lookup",
+    "date": "2026-07-10T01:12:06Z"
+  },
+  {
+    "sha": "3724b93d8c882630f4832fef6e4f909015f29d58",
+    "subject": "Transitioned from Plan to Build mode",
+    "date": "2026-07-10T01:00:25Z"
+  },
+  {
+    "sha": "ec0bd94333a5199fbfcf563138ae3f65c929e861",
+    "subject": "Published your App",
+    "date": "2026-07-09T11:02:09Z"
+  },
+  {
+    "sha": "85b07a603ba936220dd1cf9b653c190bc1c50047",
+    "subject": "Task #177: Stop Bolt Card false failures and double charges",
+    "date": "2026-07-09T10:43:46Z"
+  },
+  {
+    "sha": "f19cf049fb56e1fcb10647ef39ed4e48ae34d62c",
+    "subject": "Transitioned from Plan to Build mode",
+    "date": "2026-07-09T10:27:38Z"
+  },
+  {
+    "sha": "ee5747f05a3c733dffd7bc4b23537d5757ab3099",
+    "subject": "Published your App",
+    "date": "2026-07-08T11:08:06Z"
+  },
+  {
+    "sha": "67633f12fea1dcb3694329060eb8079886cb6ae3",
+    "subject": "Fix receive payments end to end (Task #174)",
+    "date": "2026-07-08T10:22:51Z"
+  },
+  {
+    "sha": "0fcf4e3df805174366125b1f28bab8d0e03cb930",
+    "subject": "Transitioned from Plan to Build mode",
+    "date": "2026-07-08T09:48:41Z"
+  },
+  {
+    "sha": "f5ada5c36cadb210491981c25841596f333a36e4",
+    "subject": "Display actual network fees paid by the user's wallet",
+    "date": "2026-07-08T08:50:34Z"
+  },
+  {
+    "sha": "4d6782f32bb666b6dd705f8dc03dcdcb730dd743",
+    "subject": "Task #167: Non-custodial wallet onboarding",
+    "date": "2026-07-08T07:39:18Z"
+  },
+  {
+    "sha": "70fa8ad6c23fd0338d3527ff66e5de7a2dbd695b",
+    "subject": "Task #166: Non-custodial fee engine (1% in, 0% out) via wrapped hold invoices",
+    "date": "2026-07-08T07:13:33Z"
+  },
+  {
+    "sha": "1baf221e6df3804228f6f1963d48545727252b13",
+    "subject": "Task #166: Non-custodial fee engine (1% in, 0% out) via wrapped hold invoices",
+    "date": "2026-07-08T07:09:49Z"
+  },
+  {
+    "sha": "d425074353f754cf32589b21dfa07e1127f16c47",
+    "subject": "Transitioned from Plan to Build mode",
+    "date": "2026-07-08T06:54:29Z"
+  },
+  {
+    "sha": "a7dde635351c7bd2d255c78ad217b4a4392d1e25",
+    "subject": "Update version information and commit history to reflect latest changes",
+    "date": "2026-07-04T17:52:34Z"
+  },
+  {
+    "sha": "941c517d42c7627c004e7f51d99f48dac14bdf82",
+    "subject": "Add a test mode to check buzzer functionality and determine its type",
+    "date": "2026-07-04T12:23:04Z"
+  },
+  {
+    "sha": "3b12e615eba3ea384c4cc05e4ce95f8ce87f0c70",
+    "subject": "Published your App",
+    "date": "2026-07-04T12:07:37Z"
+  },
+  {
+    "sha": "c45b6bf0dcb85e0d4929b477078cd72e6f533555",
+    "subject": "Improve invoice creation reliability by pinning encryption for Veil wallets",
+    "date": "2026-07-04T11:58:39Z"
+  },
+  {
+    "sha": "ffa5b08d365cdc3d08d50b6ddb997019e2370109",
+    "subject": "Add audible feedback for user actions and system events",
+    "date": "2026-07-04T11:01:49Z"
+  },
+  {
+    "sha": "b99594d41b9fa24258184152888bff756ac8ba3b",
+    "subject": "Transitioned from Plan to Build mode",
+    "date": "2026-07-04T10:50:19Z"
+  },
+  {
+    "sha": "d049cf876ae32330cd4924405621ad82ddac60e3",
+    "subject": "Update commit history and version information for recent changes",
+    "date": "2026-07-04T10:15:50Z"
+  },
+  {
+    "sha": "58fb8b3b9dee44a02aae77b220a592ec4d2fec89",
+    "subject": "Published your App",
+    "date": "2026-07-02T10:06:25Z"
+  },
+  {
+    "sha": "2821934480d79c8d918234bb1bbd600013329439",
+    "subject": "Improve dashboard responsiveness by automatically refreshing wallet activity",
+    "date": "2026-07-02T09:58:37Z"
+  },
+  {
+    "sha": "ff0959103b42ac3cfa3a7bdac139402c7a34bd0c",
+    "subject": "Improve wallet connection stability and payment processing reliability",
+    "date": "2026-07-02T09:32:06Z"
+  },
+  {
+    "sha": "4c26e8a4ea8bc58023dc458833a23ab6eec112dd",
+    "subject": "Published your App",
+    "date": "2026-07-02T09:16:11Z"
+  },
+  {
+    "sha": "9c81102a58cc44e39436c2a3310aeff774967c66",
+    "subject": "Improve relay connection stability and payment retry logic",
+    "date": "2026-07-02T09:07:31Z"
+  },
+  {
+    "sha": "d78379d8b8864b5f0b5bb53128e393ffd5611854",
+    "subject": "Published your App",
+    "date": "2026-07-02T09:02:37Z"
+  },
+  {
+    "sha": "654f1a14e804274e60acdf549b49618d42e41572",
+    "subject": "Improve dashboard balance display and API relay stability",
+    "date": "2026-07-02T08:51:35Z"
+  },
+  {
+    "sha": "16173f09d4d9e2a3fb102f40750016a2646be53f",
+    "subject": "Published your App",
+    "date": "2026-07-02T08:11:36Z"
+  },
+  {
+    "sha": "ff31204ebc491bd44784edcc889228dfa8e6dc82",
+    "subject": "Instant receive history on autoscale (Task #162)",
+    "date": "2026-07-02T08:00:01Z"
+  },
+  {
+    "sha": "5e6085f458cbc2b19204d4063e89f762b3744887",
+    "subject": "Published your App",
+    "date": "2026-07-02T07:37:20Z"
+  },
+  {
+    "sha": "7e7956b727a62bf36bfb33b263ee50e4b0af70fc",
+    "subject": "Migrate Bolt Card (LNURL-withdraw) payment path to Veil wallets",
+    "date": "2026-07-02T07:26:43Z"
+  },
+  {
+    "sha": "d2f5c730605e1b2149b8ab4ebd73b994773ad531",
+    "subject": "Published your App",
+    "date": "2026-07-02T06:53:56Z"
+  },
+  {
+    "sha": "d4bc58dbe08fb2b230880c990dedd5d63e1fed6d",
+    "subject": "Update swap route to use live wallet balance for verification",
+    "date": "2026-07-02T06:37:58Z"
+  },
+  {
+    "sha": "c4d38d3d4956d084de59c66e79b434b7b2699b6f",
+    "subject": "Verify bitPOS email sender branding; add hardened sweep-to-veil endpoint",
+    "date": "2026-07-02T06:34:22Z"
+  },
+  {
+    "sha": "9d3906ae2d4449f6238ed94fdede5b0ee7d931ef",
+    "subject": "Add hardened admin sweep-to-veil migration endpoint",
+    "date": "2026-07-02T06:30:51Z"
+  },
+  {
+    "sha": "816f22a5020ca9b6bcdef25fc5bb147982b6d062",
+    "subject": "Update payment processing and remove internal bank account",
+    "date": "2026-07-02T05:44:36Z"
+  },
+  {
+    "sha": "97c13fcccc5a2db80a3b692e4a2e8ff0f24eb9c6",
+    "subject": "fix: update Veil wallet description text in Settings",
+    "date": "2026-07-02T05:00:16Z"
+  },
+  {
+    "sha": "16b04b1915b8e3e03bed5cc76786edd56a548c8a",
+    "subject": "feat: Veil NIP-47 migration - per-user wallet via nostr keypairs",
+    "date": "2026-07-02T04:55:44Z"
+  },
+  {
+    "sha": "112a012ac251b7ad5b73f7fc71a46a2888aff276",
+    "subject": "Add a test for Veil notifications and invoice payments",
+    "date": "2026-07-02T04:36:52Z"
+  },
+  {
+    "sha": "247d0760d3478c64b4cc8b7ca341a33220248737",
+    "subject": "Add integration tests for Veil's Nostr Wallet Connect functionality",
+    "date": "2026-07-02T04:32:17Z"
+  },
+  {
+    "sha": "431a1b71406452b799e3f0aeb03705e61e5671a2",
+    "subject": "Published your App",
+    "date": "2026-07-02T03:53:12Z"
+  },
+  {
+    "sha": "11a228a29bcd86e53cdebb5db75c5b7298ced1b4",
+    "subject": "Fix Card Shop JSON parse error: use /api path not BASE_URL prefix",
+    "date": "2026-07-02T03:45:54Z"
+  },
+  {
+    "sha": "6391fb3ab09aa6b1d2123cf73cc9ef9edd2a756f",
+    "subject": "Published your App",
+    "date": "2026-07-02T03:38:07Z"
+  },
+  {
+    "sha": "0db672f271d139d7e496a75dc519750fd6309a7c",
+    "subject": "Add embeddable card shop functionality to the business section",
+    "date": "2026-07-02T03:31:13Z"
+  },
+  {
+    "sha": "58de37f00339893cdcddb67486ce2297a2cfcc8e",
+    "subject": "Add a new embeddable card shop to the business section",
+    "date": "2026-07-02T03:27:00Z"
+  },
+  {
+    "sha": "8cf83ad074eacc55801087e2a7c140bc3692d487",
+    "subject": "Resolve port conflicts and ensure all services run independently",
+    "date": "2026-07-02T02:28:42Z"
+  },
+  {
+    "sha": "73d74251ead54cd846f2a0f5d8747e0da1c8a1ae",
+    "subject": "Update landing page text and commit version information",
+    "date": "2026-07-02T02:20:15Z"
+  },
+  {
+    "sha": "1c66532eec4bb45b28e7d9919dbd025312f40471",
+    "subject": "Update text on the landing page to reflect new phrasing",
+    "date": "2026-07-01T09:37:30Z"
+  },
+  {
+    "sha": "e37ad9a75e70dc125e49cf8ad9a08d025954773b",
+    "subject": "Update website text and commit version information",
+    "date": "2026-07-01T09:37:05Z"
+  },
+  {
+    "sha": "9ab65baeb843a7cbda8d00306907b9560f315419",
+    "subject": "Published your App",
+    "date": "2026-06-24T10:48:52Z"
+  },
+  {
+    "sha": "6a7ca09152030d1b84d900e734ff6506486d909d",
+    "subject": "Update the dashboard header to show \"Sweep Balance\"",
+    "date": "2026-06-24T10:41:24Z"
+  }
+]

@@ -1,0 +1,35 @@
+# bitPOS — Caddy reverse proxy (Caddy v2)
+{
+	auto_https off
+	admin off
+}
+
+:80 {
+	# ---- API & Lightning paths → api-server (FIRST, before SPA fallback) ----
+	@isApi path /api/* /card/* /.well-known/* /lnurlp/*
+	handle @isApi {
+		reverse_proxy api:8080
+	}
+
+	# ---- Web app (POS) at /app/* ----
+	@isWeb path /app/* /app
+	handle @isWeb {
+		uri strip_prefix /app
+		root * /srv/web
+		try_files {path} /index.html
+		file_server
+	}
+
+	# ---- Landing page at / (catch-all) ----
+	handle {
+		root * /srv/landing
+		try_files {path} /index.html
+		file_server
+	}
+
+	encode gzip zstd
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+	}
+}
