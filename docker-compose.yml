@@ -1,0 +1,40 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: api-runtime
+    image: bitpos-api:local
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://bitpos:d9073034686b95857fb367f692fd7df712809ab3ecef12eb@bitpos-db:5432/bitpos_dev
+      PORT: "8080"
+      NODE_ENV: production
+    networks:
+      - bitpos
+
+  caddy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: caddy-runtime
+    image: bitpos-caddy:local
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "3000:80"
+    volumes:
+      - caddy-data:/data
+      - caddy-config:/config
+    networks:
+      - bitpos
+
+volumes:
+  caddy-data:
+  caddy-config:
+
+networks:
+  bitpos:
+    driver: bridge
